@@ -17,7 +17,13 @@ from .serializers import (
     ProgressoSerializer,
 )
 
+class TreinoInfoView(APIView):
+    permission_classes = [IsAuthenticated]  # Garantir que apenas usuários autenticados acessem
 
+    def get(self, request):
+        treino = Treino.objects.all()
+        serializer = TreinoSerializer(treino, many=True)
+        return Response(serializer.data)
 
 class UserInfoView(APIView):
     permission_classes = [IsAuthenticated]  # Garantir que apenas usuários autenticados acessem

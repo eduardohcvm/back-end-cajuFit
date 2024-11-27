@@ -8,7 +8,8 @@ from .views import (
     TreinoViewSet,
     TreinoExercicioViewSet,
     ProgressoViewSet,
-    UserInfoView
+    UserInfoView,
+    TreinoInfoView
 )
 
 router = DefaultRouter()
@@ -25,4 +26,5 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('api/usuarios/', UsuarioView.as_view(), name='usuarios'),
     path('api/user-info/', UserInfoView.as_view(), name='user-info'),
+    path('api/treinos/', TreinoInfoView.as_view(), name='treino-info'),
 ]
