@@ -25,6 +25,14 @@ class TreinoInfoView(APIView):
         serializer = TreinoSerializer(treino, many=True)
         return Response(serializer.data)
 
+class TreinoExercicioInfoView(APIView):
+    permission_classes = [IsAuthenticated]  # Garantir que apenas usuários autenticados acessem
+
+    def get(self, request):
+        treinoexercicio = TreinoExercicio.objects.all()
+        serializer = TreinoExercicioSerializer(treinoexercicio, many=True)
+        return Response(serializer.data)
+
 class UserInfoView(APIView):
     permission_classes = [IsAuthenticated]  # Garantir que apenas usuários autenticados acessem
 

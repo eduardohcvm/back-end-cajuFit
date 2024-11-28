@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import RegisterView, LoginView
+from .views import RegisterView, LoginView, TreinoExercicioInfoView
 from .views import UsuarioView
 from rest_framework.routers import DefaultRouter
 from .views import (
@@ -27,4 +27,6 @@ urlpatterns = [
     path('api/usuarios/', UsuarioView.as_view(), name='usuarios'),
     path('api/user-info/', UserInfoView.as_view(), name='user-info'),
     path('api/treinos/', TreinoInfoView.as_view(), name='treino-info'),
+
+    path('api/treinoexercicios/', TreinoExercicioInfoView.as_view(), name='treino-info'),
 ]
