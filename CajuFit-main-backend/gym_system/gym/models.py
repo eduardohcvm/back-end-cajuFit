@@ -26,6 +26,7 @@ class Exercicio(models.Model):
         return self.nome
 
 
+
 class Treino(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, related_name='treinos')
     descricao = models.TextField()
