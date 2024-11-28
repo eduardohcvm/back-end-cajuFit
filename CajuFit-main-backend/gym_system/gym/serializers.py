@@ -13,14 +13,19 @@ class ExercicioSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TreinoSerializer(serializers.ModelSerializer):
+    aluno = AlunoSerializer(read_only=True)
+
     class Meta:
         model = Treino
-        fields = '__all__'
+        fields = ['aluno', 'descricao', 'data']
 
 class TreinoExercicioSerializer(serializers.ModelSerializer):
+    treino = TreinoSerializer(read_only=True)
+    exercicio = ExercicioSerializer(read_only=True)
+
     class Meta:
         model = TreinoExercicio
-        fields = '__all__'
+        fields = ['treino', 'exercicio', 'carga', 'series', 'repeticoes', 'concluido']
 
 class ProgressoSerializer(serializers.ModelSerializer):
     class Meta:
